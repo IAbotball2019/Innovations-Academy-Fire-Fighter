@@ -1,0 +1,32 @@
+ude <kipr/botball.h>
+          // begin with the robot facing fire fighter station 
+         // drive forward to get to fire fighter station
+        //use servo to push fire fighter to corner
+       //move servo to starting position
+      //rotate then drive, then line follow with left censor 
+     //
+    //
+   //
+  //
+ //
+    int main()
+    {
+        motor(1,100); motor(3,100); msleep(1000); //go forward to get out of starting box
+        while(analog(0)<800 || analog(2)<800)
+        {
+         motor(1,100);
+         motor(3,100);
+        }
+        enable_servos();
+        set_servo_position(1,1688);
+        msleep(500);
+              set_servo_position(1,194);
+        msleep(500);
+        disable_servos();
+       while (analog(2)<800)
+       {motor(1,-100);
+         motor(3,100);
+       }
+        printf("Hello World\n"); 
+        return 0;
+    }
